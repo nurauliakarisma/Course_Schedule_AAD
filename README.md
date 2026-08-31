@@ -8,7 +8,7 @@ Aplikasi manajemen jadwal kuliah modern berbasis Android Native dengan arsitektu
 
 | Home (Jadwal Terdekat) | Daftar Jadwal Kuliah | Detail Jadwal |
 |:---:|:---:|:---:|
-| ![Home](screenshots/01_home_screen.png) | ![List](screenshots/07_settings_screen.png) | ![Detail](screenshots/04_detail_screen.png) |
+| ![Home](screenshots/01_home_screen.png) | ![List](02_list_screen.png) | ![Detail](screenshots/04_detail_screen.png) |
 
 | Tambah Jadwal Kuliah | Time Picker Dialog | Pengaturan & Tema |
 |:---:|:---:|:---:|
