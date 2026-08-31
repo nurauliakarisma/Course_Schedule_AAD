@@ -29,6 +29,12 @@ interface CourseDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(course: Course)
 
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertAll(courses: List<Course>)
+
+    @Query("SELECT COUNT(*) FROM course")
+    fun count(): Int
+
     @Delete
     fun delete(course: Course)
 

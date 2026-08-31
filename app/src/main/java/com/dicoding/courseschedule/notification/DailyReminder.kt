@@ -82,11 +82,16 @@ class DailyReminder : BroadcastReceiver() {
         val intent = Intent(context, HomeActivity::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
 
+        val flag = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+        } else {
+            PendingIntent.FLAG_UPDATE_CURRENT
+        }
         val pendingIntent = PendingIntent.getActivity(
             context,
             NOTIFICATION_ID,
             intent,
-            PendingIntent.FLAG_UPDATE_CURRENT
+            flag
         )
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {

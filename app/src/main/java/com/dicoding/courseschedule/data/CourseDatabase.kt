@@ -4,6 +4,8 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.sqlite.db.SupportSQLiteDatabase
+import java.util.concurrent.Executors
 
 //TODO 3 : Define room database class
 @Database(entities = [Course::class],
@@ -25,8 +27,22 @@ abstract class CourseDatabase : RoomDatabase() {
                     CourseDatabase::class.java,
                     "courses.db"
                 )
+                    .addCallback(object : Callback() {
+                        override fun onCreate(db: SupportSQLiteDatabase) {
+                            super.onCreate(db)
+                            Executors.newSingleThreadExecutor().execute {
+                                instance?.courseDao()?.let { dao ->
+                                    if (dao.count() == 0) {
+                                        dao.insertAll(InitialDataSource.getInitialCourses())
+                                    }
+                                }
+                            }
+                        }
+                    })
                     .build()
-                    .also { instance = it }
+                    .also { db ->
+                        instance = db
+                    }
             }
         }
     }

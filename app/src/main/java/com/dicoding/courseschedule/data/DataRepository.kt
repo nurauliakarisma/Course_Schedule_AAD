@@ -39,8 +39,7 @@ class DataRepository(private val dao: CourseDao) {
 
     fun getTodaySchedule(): List<Course> {
         val dayOfWeek = Calendar.getInstance().get(Calendar.DAY_OF_WEEK)
-        val adjustedDayOfWeek = if (dayOfWeek == Calendar.SUNDAY) 7 else dayOfWeek - 1
-        return dao.getTodaySchedule(adjustedDayOfWeek)
+        return dao.getTodaySchedule(dayOfWeek)
     }
 
 

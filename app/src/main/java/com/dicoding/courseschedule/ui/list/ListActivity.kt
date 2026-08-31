@@ -85,7 +85,7 @@ class ListActivity : AppCompatActivity() {
 
     //TODO 14 : Fixing bug : sort menu not show and course not deleted when list is swiped
     private fun showSortMenu() {
-        val view = findViewById<View>(R.id.action_sort) ?: return
+        val view = findViewById<View>(R.id.action_sort) ?: findViewById(R.id.toolbar) ?: return
         PopupMenu(this, view).run {
             menuInflater.inflate(R.menu.sort_course, menu)
 
