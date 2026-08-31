@@ -89,3 +89,7 @@ Database aplikasi sudah otomatis terisi **20 data jadwal kuliah realistis** yang
 
 ## 👨‍💻 Submission Info
 Project submission untuk modul **Belajar Fundamental Aplikasi Android (AAD)** - Dicoding Indonesia.
+
+<p align="center">
+  Dibuat dengan ❤️ menggunakan <b>Kotlin</b>
+</p>
